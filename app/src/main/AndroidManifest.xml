@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
+        android:name=".ui.components.RunningApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,12 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MangaTranslator"
         tools:targetApi="31">
-        <service android:name=".ui.components.FloatingWidgetService" />
+
+        <service
+            android:name=".ui.components.FloatingWidgetService"
+            android:foregroundServiceType="mediaProjection"
+            android:exported="false">
+        </service>
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.MangaTranslator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

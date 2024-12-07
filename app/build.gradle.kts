@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.mangatranslator"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.mangatranslator"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = 33
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -54,7 +54,6 @@ dependencies {
     implementation(libs.mlkit.text.recognition.chinese)
     implementation(libs.mlkit.text.recognition.japanese)
     implementation(libs.mlkit.text.recognition.korean)
-    implementation(libs.mlkit.text.recognition.vietnamese)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
