@@ -8,13 +8,11 @@ import android.media.projection.MediaProjectionManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -42,22 +40,23 @@ import androidx.compose.ui.unit.sp
 import androidx.core.app.ActivityCompat
 import com.example.mangatranslator.ui.components.FloatingWidgetService
 
-
 class MainActivity : ComponentActivity() {
     private lateinit var screenCaptureLauncher: ActivityResultLauncher<Intent>
     private var enableWidget by mutableStateOf(false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Manual Manage of window fitting
+        //WindowCompat.setDecorFitsSystemWindows(window, false)
+
         // Ask for Notification Permissions
         val permissions = mutableListOf<String>()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            permissions.add(Manifest.permission.POST_NOTIFICATIONS) // API 33
-            permissions.add(Manifest.permission.SYSTEM_ALERT_WINDOW)
-            permissions.add(Manifest.permission.FOREGROUND_SERVICE)
-        }
+        permissions.add(Manifest.permission.POST_NOTIFICATIONS) // API 33 (Android 13)
+        permissions.add(Manifest.permission.SYSTEM_ALERT_WINDOW)
+        permissions.add(Manifest.permission.FOREGROUND_SERVICE)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            permissions.add(Manifest.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION) // API 34
+            permissions.add(Manifest.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION) // API 34 (Android 14 required)
         }
         if (permissions.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, permissions.toTypedArray(), 0)

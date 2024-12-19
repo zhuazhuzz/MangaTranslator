@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ui.components.RunningApp"
         android:allowBackup="true"
@@ -28,7 +30,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.MangaTranslator">
+            android:theme="@style/Theme.MangaTranslator"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

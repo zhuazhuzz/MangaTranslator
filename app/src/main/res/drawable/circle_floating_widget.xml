@@ -4,10 +4,10 @@
 
     >
 
-    <solid android:color="#65BF59" />
+    <solid android:color="#60a0ed" />
     <size
-        android:width="45dp"
-        android:height="45dp" />
+        android:width="43dp"
+        android:height="43dp" />
     <corners
         android:bottomRightRadius="100dp"
         android:bottomLeftRadius="100dp"

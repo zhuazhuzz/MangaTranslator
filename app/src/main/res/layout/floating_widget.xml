@@ -3,7 +3,19 @@
     android:id="@+id/floating_widget"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/ic_launcher_background">
+    android:background="@drawable/circle_floating_widget"
+    >
 
+    <ImageView
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:contentDescription="@string/book"
+
+        android:background="@drawable/dictionary_20px"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+        >
+    </ImageView>
 
 </RelativeLayout>
